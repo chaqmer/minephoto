@@ -1,34 +1,23 @@
-const CACHE_NAME = 'minephoto-v1';
-const URLS_TO_CACHE = [
-  './index.html',
-  './manifest.json',
-  './icon.svg'
-];
+const CACHE_NAME = 'minephoto-v2';
+const URLS_TO_CACHE = ['./index.html', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(URLS_TO_CACHE))
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(URLS_TO_CACHE)));
   self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
-    )
-  );
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))));
   self.clients.claim();
 });
 
 self.addEventListener('fetch', event => {
-  // Network first for API calls
-  if (event.request.url.includes('api.anthropic.com')) {
+  if (event.request.url.includes('generativelanguage.googleapis.com') ||
+      event.request.url.includes('api.openai.com')) {
     event.respondWith(fetch(event.request));
     return;
   }
-  // Cache first for app assets
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request))
+    fetch(event.request).catch(() => caches.match(event.request))
   );
 });
