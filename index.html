@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -24,20 +25,15 @@
   --mc-wood: #6B4226;
   --mc-wood-light: #9C6B3C;
   --mc-sky: #87CEEB;
-  --mc-night: #1a0e2e;
   --mc-gold: #FFD700;
   --mc-diamond: #4AEDD9;
   --mc-red: #C62828;
   --mc-white: #F5F0E1;
   --mc-dark: #2d1a0e;
   --mc-bg: #3a2a14;
-  --pixel: 4px;
 }
 
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
+html, body { height: 100%; overflow-x: hidden; }
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -47,7 +43,6 @@ body {
   position: relative;
 }
 
-/* Minecraft dirt texture background */
 body::before {
   content: '';
   position: fixed;
@@ -71,34 +66,22 @@ body::before {
   flex-direction: column;
 }
 
-/* ---- HEADER ---- */
-.header {
-  text-align: center;
-  padding: 20px 0 10px;
-}
+.header { text-align: center; padding: 20px 0 10px; }
 
 .logo {
   font-family: 'Silkscreen', monospace;
   font-size: 2.2rem;
   color: var(--mc-grass-light);
-  text-shadow:
-    3px 3px 0 var(--mc-dirt-dark),
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: 3px 3px 0 var(--mc-dirt-dark), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   letter-spacing: 2px;
   animation: titleBounce 0.6s ease-out;
 }
-
 .logo span { color: var(--mc-gold); }
-
 .subtitle {
   font-family: 'Silkscreen', monospace;
   font-size: 0.75rem;
   color: var(--mc-wood-light);
   margin-top: 4px;
-  letter-spacing: 1px;
 }
 
 @keyframes titleBounce {
@@ -107,11 +90,9 @@ body::before {
   100% { transform: scale(1) translateY(0); opacity: 1; }
 }
 
-/* ---- SCREENS ---- */
-.screen { display: none; flex-direction: column; flex: 1; gap: 16px; }
+.screen { display: none; flex-direction: column; flex: 1; gap: 14px; }
 .screen.active { display: flex; }
 
-/* ---- UPLOAD AREA ---- */
 .upload-zone {
   border: 4px dashed var(--mc-grass);
   border-radius: 8px;
@@ -120,93 +101,46 @@ body::before {
   cursor: pointer;
   transition: all 0.2s;
   background: rgba(93, 140, 46, 0.08);
-  position: relative;
-  overflow: hidden;
 }
-
 .upload-zone:hover, .upload-zone:active {
   background: rgba(93, 140, 46, 0.18);
   border-color: var(--mc-grass-light);
-  transform: scale(1.01);
 }
-
 .upload-zone .pickaxe {
   font-size: 3.5rem;
   display: block;
   margin-bottom: 12px;
   animation: swing 1.5s ease-in-out infinite;
 }
-
 @keyframes swing {
   0%, 100% { transform: rotate(-10deg); }
   50% { transform: rotate(10deg); }
 }
-
-.upload-zone p {
-  font-family: 'Silkscreen', monospace;
-  font-size: 0.9rem;
-  color: var(--mc-grass-light);
-}
-
-.upload-zone small {
-  display: block;
-  margin-top: 8px;
-  color: var(--mc-wood-light);
-  font-size: 0.8rem;
-}
-
+.upload-zone p { font-family: 'Silkscreen', monospace; font-size: 0.9rem; color: var(--mc-grass-light); }
+.upload-zone small { display: block; margin-top: 8px; color: var(--mc-wood-light); font-size: 0.8rem; }
 input[type="file"] { display: none; }
 
-/* ---- PREVIEW ---- */
 .preview-container {
-  position: relative;
   border-radius: 8px;
   overflow: hidden;
   border: 4px solid var(--mc-wood);
   background: #000;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5), inset 0 0 30px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
-
-.preview-container img, .preview-container canvas {
+.preview-container img {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 55vh;
+  max-height: 45vh;
   object-fit: contain;
 }
 
-/* ---- DETECTION BADGE ---- */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-family: 'Silkscreen', monospace;
-  font-size: 0.85rem;
-  background: linear-gradient(135deg, rgba(93,140,46,0.3), rgba(93,140,46,0.1));
-  border: 2px solid var(--mc-grass);
-  animation: badgePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.badge .icon { font-size: 1.3rem; }
-
-@keyframes badgePop {
-  0% { transform: scale(0); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* ---- MODE SELECTOR ---- */
-.mode-selector {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+.mode-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
 .mode-btn {
   font-family: 'Silkscreen', monospace;
-  font-size: 0.7rem;
-  padding: 14px 10px;
+  font-size: 0.65rem;
+  padding: 12px 8px;
   border: 3px solid var(--mc-wood);
   border-radius: 6px;
   background: var(--mc-bg);
@@ -216,33 +150,31 @@ input[type="file"] { display: none; }
   text-align: center;
   line-height: 1.4;
 }
-
 .mode-btn:hover { border-color: var(--mc-grass); background: rgba(93,140,46,0.15); }
 .mode-btn.selected {
   border-color: var(--mc-grass-light);
   background: rgba(93,140,46,0.25);
   box-shadow: 0 0 12px rgba(93,140,46,0.3);
 }
+.mode-btn .mode-icon { font-size: 1.8rem; display: block; margin-bottom: 4px; }
+.mode-btn .mode-label { color: var(--mc-grass-light); font-size: 0.7rem; }
 
-.mode-btn .mode-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; }
-.mode-btn .mode-label { color: var(--mc-grass-light); }
-
-/* ---- API KEY ---- */
-.api-key-section {
+.api-section {
   display: none;
   gap: 8px;
   flex-direction: column;
+  padding: 12px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  border: 2px solid var(--mc-wood);
 }
-
-.api-key-section.visible { display: flex; }
-
-.api-key-section label {
+.api-section.visible { display: flex; }
+.api-section label {
   font-family: 'Silkscreen', monospace;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--mc-wood-light);
 }
-
-.api-key-section input {
+.api-section input {
   padding: 10px 14px;
   border: 2px solid var(--mc-wood);
   border-radius: 6px;
@@ -252,16 +184,10 @@ input[type="file"] { display: none; }
   font-family: monospace;
   outline: none;
 }
+.api-section input:focus { border-color: var(--mc-diamond); }
+.api-hint { font-size: 0.65rem; color: var(--mc-stone); line-height: 1.4; }
+.api-hint b { color: var(--mc-diamond); }
 
-.api-key-section input:focus { border-color: var(--mc-diamond); }
-
-.api-hint {
-  font-size: 0.7rem;
-  color: var(--mc-stone);
-  line-height: 1.4;
-}
-
-/* ---- BUTTONS ---- */
 .btn {
   font-family: 'Silkscreen', monospace;
   font-size: 0.85rem;
@@ -272,10 +198,7 @@ input[type="file"] { display: none; }
   transition: all 0.15s;
   text-transform: uppercase;
   letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
 }
-
 .btn:active { transform: scale(0.97); }
 
 .btn-primary {
@@ -285,53 +208,35 @@ input[type="file"] { display: none; }
   border-bottom: 4px solid #3d6b1a;
   font-size: 1rem;
 }
-
 .btn-primary:hover { filter: brightness(1.1); }
 .btn-primary:active { border-bottom-width: 2px; margin-top: 2px; }
-
-.btn-primary:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  filter: grayscale(0.5);
-}
 
 .btn-secondary {
   background: linear-gradient(180deg, var(--mc-wood-light) 0%, var(--mc-wood) 100%);
   color: var(--mc-white);
   border-bottom: 3px solid #4a2a12;
 }
-
 .btn-gold {
   background: linear-gradient(180deg, #FFE44D 0%, #FFD700 50%, #DAA520 100%);
   color: var(--mc-dark);
   border-bottom: 4px solid #B8860B;
   font-size: 1rem;
 }
-
 .btn-diamond {
   background: linear-gradient(180deg, #7FFFFF 0%, var(--mc-diamond) 50%, #2BB5A8 100%);
   color: var(--mc-dark);
   border-bottom: 4px solid #1a8a7e;
 }
-
-.btn-row {
-  display: flex;
-  gap: 10px;
-}
-
+.btn-row { display: flex; gap: 10px; }
 .btn-row .btn { flex: 1; }
 
-/* ---- PROGRESS ---- */
 .progress-section {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   padding: 30px 0;
 }
-
-.progress-section.active { display: flex; }
-
 .progress-bar-track {
   width: 100%;
   height: 20px;
@@ -340,69 +245,71 @@ input[type="file"] { display: none; }
   border: 2px solid var(--mc-wood);
   overflow: hidden;
 }
-
 .progress-bar-fill {
   height: 100%;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--mc-grass-light) 0px,
-    var(--mc-grass-light) 14px,
-    var(--mc-grass) 14px,
-    var(--mc-grass) 16px
-  );
-  border-radius: 2px;
+  background: repeating-linear-gradient(90deg, var(--mc-grass-light) 0px, var(--mc-grass-light) 14px, var(--mc-grass) 14px, var(--mc-grass) 16px);
   width: 0%;
   transition: width 0.3s;
 }
-
 .progress-text {
   font-family: 'Silkscreen', monospace;
   font-size: 0.8rem;
   color: var(--mc-grass-light);
   text-align: center;
 }
-
 .crafting-anim {
   font-size: 2.5rem;
   animation: craftSpin 1s linear infinite;
 }
-
 @keyframes craftSpin {
   0% { transform: rotateY(0deg); }
   100% { transform: rotateY(360deg); }
 }
 
-/* ---- RESULT ---- */
 .result-label {
   font-family: 'Silkscreen', monospace;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--mc-gold);
   text-align: center;
 }
 
-.comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.comparison .preview-container { border-width: 3px; }
-.comparison .comp-label {
-  font-family: 'Silkscreen', monospace;
-  font-size: 0.6rem;
-  text-align: center;
-  padding: 4px;
-  color: var(--mc-wood-light);
-}
-
-/* ---- AI RESULT IMAGE ---- */
-.ai-result-img {
+.result-image-wrap {
+  position: relative;
   border-radius: 8px;
+  overflow: hidden;
   border: 4px solid var(--mc-gold);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.25);
+  background: #000;
+}
+.result-image-wrap img.result-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+}
+.result-image-wrap img.original-thumb {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid var(--mc-wood);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
-/* ---- INSTALL BANNER ---- */
+.error-box {
+  background: rgba(198,40,40,0.2);
+  border: 2px solid var(--mc-red);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 0.8rem;
+  color: #ff9999;
+  line-height: 1.4;
+}
+
 .install-banner {
   display: none;
   padding: 12px 16px;
@@ -412,9 +319,7 @@ input[type="file"] { display: none; }
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  animation: badgePop 0.5s ease-out;
 }
-
 .install-banner.visible { display: flex; }
 .install-banner .install-text {
   font-family: 'Silkscreen', monospace;
@@ -423,18 +328,11 @@ input[type="file"] { display: none; }
   flex: 1;
 }
 
-/* ---- FOOTER ---- */
-.footer {
-  text-align: center;
-  padding: 20px 0 10px;
-  font-size: 0.7rem;
-  color: var(--mc-wood);
-}
+.footer { text-align: center; padding: 20px 0 10px; font-size: 0.7rem; color: var(--mc-wood); }
 
-/* Responsive */
 @media (max-width: 380px) {
   .logo { font-size: 1.7rem; }
-  .mode-btn { padding: 10px 6px; font-size: 0.6rem; }
+  .mode-btn { padding: 10px 6px; font-size: 0.55rem; }
   .btn { padding: 14px 16px; font-size: 0.8rem; }
 }
 </style>
@@ -447,15 +345,14 @@ input[type="file"] { display: none; }
     <div class="subtitle">Zamień zdjęcie w Minecraft!</div>
   </header>
 
-  <!-- INSTALL BANNER -->
   <div class="install-banner" id="installBanner" onclick="installApp()">
     <span style="font-size:1.5rem">📲</span>
     <span class="install-text">Zainstaluj na telefonie!</span>
   </div>
 
-  <!-- SCREEN 1: UPLOAD -->
+  <!-- UPLOAD -->
   <div class="screen active" id="screenUpload">
-    <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+    <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
       <span class="pickaxe">⛏️</span>
       <p>Kliknij aby dodać zdjęcie!</p>
       <small>📸 Zrób fotkę lub wybierz z galerii</small>
@@ -463,48 +360,47 @@ input[type="file"] { display: none; }
     <input type="file" id="fileInput" accept="image/*" capture="environment">
   </div>
 
-  <!-- SCREEN 2: PREVIEW + TRANSFORM -->
+  <!-- PREVIEW -->
   <div class="screen" id="screenPreview">
     <div class="preview-container">
-      <img id="previewImg" src="" alt="Podgląd zdjęcia">
-    </div>
-
-    <div class="badge" id="detectionBadge">
-      <span class="icon" id="detectionIcon">🔍</span>
-      <span id="detectionText">Wykrywanie...</span>
+      <img id="previewImg" src="" alt="Podgląd">
     </div>
 
     <div class="mode-selector">
-      <button class="mode-btn selected" data-mode="pixel" onclick="selectMode('pixel')">
-        <span class="mode-icon">🧱</span>
-        <span class="mode-label">Pikselowy filtr</span><br>
-        <small style="color:var(--mc-stone);font-size:0.55rem">Szybki i darmowy</small>
+      <button class="mode-btn selected" data-mode="gemini" onclick="selectMode('gemini')">
+        <span class="mode-icon">🍌</span>
+        <span class="mode-label">Nano Banana</span><br>
+        <small style="color:var(--mc-stone);font-size:0.5rem">Google Gemini</small>
       </button>
-      <button class="mode-btn" data-mode="ai" onclick="selectMode('ai')">
-        <span class="mode-icon">🤖</span>
-        <span class="mode-label">AI Minecraft</span><br>
-        <small style="color:var(--mc-stone);font-size:0.55rem">Wymaga klucza API</small>
+      <button class="mode-btn" data-mode="dalle" onclick="selectMode('dalle')">
+        <span class="mode-icon">🎨</span>
+        <span class="mode-label">DALL-E 3</span><br>
+        <small style="color:var(--mc-stone);font-size:0.5rem">OpenAI</small>
       </button>
     </div>
 
-    <div class="api-key-section" id="apiKeySection">
-      <label>🔑 Klucz API Anthropic:</label>
-      <input type="password" id="apiKeyInput" placeholder="sk-ant-...">
-      <div class="api-hint">Klucz potrzebny do trybu AI. Możesz go zdobyć na console.anthropic.com</div>
+    <div class="api-section visible" id="geminiSection">
+      <label>🔑 Klucz API Google Gemini:</label>
+      <input type="password" id="geminiKeyInput" placeholder="AIzaSy...">
+      <div class="api-hint">Zdobądź klucz na <b>aistudio.google.com/apikey</b></div>
     </div>
 
-    <button class="btn btn-primary" id="transformBtn" onclick="startTransform()">
+    <div class="api-section" id="dalleSection">
+      <label>🔑 Klucz API OpenAI:</label>
+      <input type="password" id="dalleKeyInput" placeholder="sk-...">
+      <div class="api-hint">Zdobądź klucz na <b>platform.openai.com/api-keys</b></div>
+    </div>
+
+    <button class="btn btn-primary" onclick="startTransform()">
       ⛏️ Zamień na Minecraft!
     </button>
 
-    <button class="btn btn-secondary" onclick="resetApp()">
-      ← Nowe zdjęcie
-    </button>
+    <button class="btn btn-secondary" onclick="resetApp()">← Nowe zdjęcie</button>
   </div>
 
-  <!-- SCREEN 3: PROCESSING -->
+  <!-- PROCESSING -->
   <div class="screen" id="screenProcessing">
-    <div class="progress-section active">
+    <div class="progress-section">
       <div class="crafting-anim">⛏️</div>
       <div class="progress-text" id="progressText">Kopiemy piksele...</div>
       <div class="progress-bar-track">
@@ -513,494 +409,306 @@ input[type="file"] { display: none; }
     </div>
   </div>
 
-  <!-- SCREEN 4: RESULT -->
+  <!-- RESULT -->
   <div class="screen" id="screenResult">
-    <div class="result-label">✨ Gotowe! ✨</div>
-
+    <div class="result-label" id="resultLabel">✨ Minecraft gotowy! ✨</div>
     <div id="resultArea"></div>
-
     <div class="btn-row">
-      <button class="btn btn-gold" onclick="saveResult()">
-        💾 Zapisz
-      </button>
-      <button class="btn btn-diamond" onclick="resetApp()">
-        🔄 Nowe
-      </button>
+      <button class="btn btn-gold" onclick="saveResult()">💾 Zapisz</button>
+      <button class="btn btn-diamond" onclick="resetApp()">🔄 Nowe</button>
     </div>
   </div>
 
-  <footer class="footer">
-    Zrobione przez Adama i Tatę ⛏️❤️
-  </footer>
+  <footer class="footer">Zrobione przez Adama i Tatę ⛏️❤️</footer>
 </div>
 
-<!-- HIDDEN CANVASES -->
-<canvas id="pixelCanvas" style="display:none"></canvas>
-
 <script>
-// ========== STATE ==========
-let currentMode = 'pixel';
-let originalImage = null;
-let resultDataUrl = null;
+let currentMode = 'gemini';
+let originalDataUrl = null;
+let originalBase64 = null;
+let originalMime = 'image/jpeg';
+let resultImageUrl = null;
 let deferredPrompt = null;
 
-// ========== PWA INSTALL ==========
+// PWA
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
   document.getElementById('installBanner').classList.add('visible');
 });
-
 function installApp() {
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(() => {
-      deferredPrompt = null;
-      document.getElementById('installBanner').classList.remove('visible');
-    });
-  }
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(() => { deferredPrompt = null; document.getElementById('installBanner').classList.remove('visible'); });
 }
 
-// ========== NAVIGATION ==========
+// NAV
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
-
 function resetApp() {
   showScreen('screenUpload');
   document.getElementById('fileInput').value = '';
-  originalImage = null;
-  resultDataUrl = null;
+  document.getElementById('progressFill').style.width = '0%';
+  originalDataUrl = null; originalBase64 = null; resultImageUrl = null;
+  document.querySelectorAll('.error-box').forEach(e => e.remove());
 }
 
-// ========== MODE SELECTION ==========
+// MODE
 function selectMode(mode) {
   currentMode = mode;
   document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('selected'));
   document.querySelector(`[data-mode="${mode}"]`).classList.add('selected');
-  document.getElementById('apiKeySection').classList.toggle('visible', mode === 'ai');
+  document.getElementById('geminiSection').classList.toggle('visible', mode === 'gemini');
+  document.getElementById('dalleSection').classList.toggle('visible', mode === 'dalle');
 }
 
-// ========== FILE UPLOAD ==========
+// FILE
 document.getElementById('fileInput').addEventListener('change', function(e) {
   const file = e.target.files[0];
   if (!file) return;
-
   const reader = new FileReader();
   reader.onload = function(ev) {
-    originalImage = ev.target.result;
-    document.getElementById('previewImg').src = originalImage;
-    showScreen('screenPreview');
-    detectContent(originalImage);
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      const MAX = 1024;
+      let w = img.width, h = img.height;
+      if (w > MAX || h > MAX) {
+        if (w > h) { h = Math.round(h * MAX / w); w = MAX; } else { w = Math.round(w * MAX / h); h = MAX; }
+      }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      originalDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+      originalBase64 = originalDataUrl.split(',')[1];
+      originalMime = 'image/jpeg';
+      document.getElementById('previewImg').src = originalDataUrl;
+      showScreen('screenPreview');
+    };
+    img.src = ev.target.result;
   };
   reader.readAsDataURL(file);
 });
 
-// ========== DETECTION ==========
-function detectContent(imgSrc) {
-  const badge = document.getElementById('detectionBadge');
-  const icon = document.getElementById('detectionIcon');
-  const text = document.getElementById('detectionText');
-
-  icon.textContent = '🔍';
-  text.textContent = 'Analizuję zdjęcie...';
-
-  // Simple heuristic detection based on image colors
-  const img = new Image();
-  img.onload = function() {
-    const c = document.createElement('canvas');
-    const ctx = c.getContext('2d');
-    c.width = 100; c.height = 100;
-    ctx.drawImage(img, 0, 0, 100, 100);
-    const data = ctx.getImageData(0, 0, 100, 100).data;
-
-    // Analyze color distribution
-    let skinTones = 0, greens = 0, blues = 0, grays = 0;
-    let totalPixels = 100 * 100;
-
-    for (let i = 0; i < data.length; i += 4) {
-      const r = data[i], g = data[i+1], b = data[i+2];
-      // Skin tone detection
-      if (r > 95 && g > 40 && b > 20 && r > g && r > b && Math.abs(r - g) > 15 && r - b > 15) skinTones++;
-      if (g > r && g > b && g > 80) greens++;
-      if (b > r && b > g && b > 100) blues++;
-      if (Math.abs(r - g) < 20 && Math.abs(g - b) < 20 && r > 60 && r < 200) grays++;
-    }
-
-    let skinPct = skinTones / totalPixels;
-    let greenPct = greens / totalPixels;
-    let bluePct = blues / totalPixels;
-    let grayPct = grays / totalPixels;
-
-    setTimeout(() => {
-      if (skinPct > 0.12) {
-        icon.textContent = '🧑';
-        text.textContent = 'Wykryto: Człowiek! 👤';
-      } else if (greenPct > 0.2 && bluePct > 0.1) {
-        icon.textContent = '🌍';
-        text.textContent = 'Wykryto: Świat na zewnątrz! 🌲';
-      } else if (greenPct > 0.15) {
-        icon.textContent = '🌿';
-        text.textContent = 'Wykryto: Rośliny / Przyroda! 🌳';
-      } else if (grayPct > 0.3) {
-        icon.textContent = '🏠';
-        text.textContent = 'Wykryto: Pokój / Budynek! 🏗️';
-      } else if (bluePct > 0.2) {
-        icon.textContent = '🌊';
-        text.textContent = 'Wykryto: Woda / Niebo! ☁️';
-      } else {
-        icon.textContent = '📦';
-        text.textContent = 'Wykryto: Przedmiot! 🎁';
-      }
-      badge.style.animation = 'none';
-      badge.offsetHeight; // reflow
-      badge.style.animation = 'badgePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-    }, 800);
-  };
-  img.src = imgSrc;
+// PROGRESS
+const mcMsg = [
+  'Kopiemy piksele... ⛏️', 'Szukamy diamentów... 💎', 'Craftujemy bloki... 🧱',
+  'Budujemy świat... 🏗️', 'Przyzywamy Creepera... 💚', 'Stawiamy pochodnie... 🔥',
+  'AI zamienia w Minecraft... ✨', 'Prawie gotowe! 🎉'
+];
+function animProg(target, dur) {
+  const fill = document.getElementById('progressFill');
+  const txt = document.getElementById('progressText');
+  const start = parseFloat(fill.style.width) || 0;
+  const t0 = Date.now();
+  let mi = Math.floor(start / 15);
+  (function tick() {
+    const p = Math.min(start + (target - start) * ((Date.now() - t0) / dur), target);
+    fill.style.width = p + '%';
+    const ni = Math.min(Math.floor(p / 15), mcMsg.length - 1);
+    if (ni !== mi) { mi = ni; txt.textContent = mcMsg[mi]; }
+    if (Date.now() - t0 < dur) requestAnimationFrame(tick);
+  })();
 }
 
-// ========== TRANSFORM ==========
+// PROMPT
+const MC_PROMPT = `Transform this photo into Minecraft game art style. The result MUST look like a scene from inside the Minecraft game:
+- All people should become blocky Minecraft characters (like Steve/Alex) with square heads and rectangular bodies, but keep their recognizable features (hair color, clothing color, pose)
+- All objects and furniture should be made of Minecraft blocks (wood planks, stone, wool, etc.)
+- The environment should look like a Minecraft world with visible cube/block textures
+- Use the classic bright Minecraft color palette
+- Make it look like official Minecraft promotional artwork - colorful, fun, 3D blocky render
+- Do NOT just pixelate or add a filter. Create a TRUE Minecraft-style 3D blocky scene.
+- The generated image should be a single complete Minecraft-style artwork.`;
+
+// START
 function startTransform() {
-  if (currentMode === 'ai') {
-    const key = document.getElementById('apiKeyInput').value.trim();
-    if (!key) {
-      alert('Wpisz klucz API Anthropic dla trybu AI! 🔑');
-      return;
-    }
-    startAITransform(key);
+  document.querySelectorAll('.error-box').forEach(e => e.remove());
+  if (currentMode === 'gemini') {
+    const key = document.getElementById('geminiKeyInput').value.trim();
+    if (!key) { alert('Wpisz klucz API Google Gemini! 🔑'); return; }
+    try { localStorage.setItem('gemini_key', key); } catch(e) {}
+    transformGemini(key);
   } else {
-    startPixelTransform();
+    const key = document.getElementById('dalleKeyInput').value.trim();
+    if (!key) { alert('Wpisz klucz API OpenAI! 🔑'); return; }
+    try { localStorage.setItem('dalle_key', key); } catch(e) {}
+    transformDalle(key);
   }
 }
 
-// ---- PIXEL FILTER ----
-function startPixelTransform() {
+// ===== GEMINI (Nano Banana) =====
+async function transformGemini(apiKey) {
   showScreen('screenProcessing');
-  const progressFill = document.getElementById('progressFill');
-  const progressText = document.getElementById('progressText');
-
-  const messages = [
-    'Kopiemy piksele... ⛏️',
-    'Zamieniamy bloki... 🧱',
-    'Craftujemy tekstury... 🎨',
-    'Stawiamy bloki... 🏗️',
-    'Prawie gotowe! ✨'
-  ];
-
-  let progress = 0;
-  const interval = setInterval(() => {
-    progress += Math.random() * 15 + 5;
-    if (progress > 100) progress = 100;
-    progressFill.style.width = progress + '%';
-    progressText.textContent = messages[Math.min(Math.floor(progress / 25), messages.length - 1)];
-
-    if (progress >= 100) {
-      clearInterval(interval);
-      setTimeout(() => applyPixelFilter(), 300);
-    }
-  }, 200);
-}
-
-function applyPixelFilter() {
-  const img = new Image();
-  img.onload = function() {
-    const canvas = document.getElementById('pixelCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // Target pixel size for Minecraft look
-    const PIXEL_SIZE = 8;
-    const smallW = Math.ceil(img.width / PIXEL_SIZE);
-    const smallH = Math.ceil(img.height / PIXEL_SIZE);
-
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    // Draw small
-    const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = smallW;
-    tempCanvas.height = smallH;
-    const tempCtx = tempCanvas.getContext('2d');
-    tempCtx.imageSmoothingEnabled = false;
-    tempCtx.drawImage(img, 0, 0, smallW, smallH);
-
-    // Map colors to Minecraft palette
-    const mcColors = [
-      [86, 125, 42],   // grass
-      [42, 100, 30],   // dark grass
-      [139, 105, 20],  // dirt
-      [92, 74, 14],    // dark dirt
-      [127, 127, 127], // stone
-      [100, 100, 100], // dark stone
-      [64, 64, 64],    // coal
-      [107, 66, 38],   // wood
-      [156, 107, 60],  // light wood
-      [135, 206, 235], // sky blue
-      [60, 140, 200],  // water
-      [30, 70, 140],   // deep water
-      [200, 200, 200], // snow/white
-      [255, 215, 0],   // gold
-      [74, 237, 217],  // diamond
-      [198, 40, 40],   // redstone
-      [245, 240, 225], // white
-      [30, 30, 30],    // obsidian
-      [160, 100, 60],  // sand
-      [220, 180, 100], // sandstone
-      [50, 80, 50],    // dark leaf
-      [80, 50, 30],    // dark wood
-      [180, 160, 140], // birch
-      [60, 180, 60],   // bright green
-      [200, 120, 60],  // orange terracotta
-      [140, 90, 80],   // red terracotta
-    ];
-
-    function nearestMC(r, g, b) {
-      let minDist = Infinity, best = mcColors[0];
-      for (const c of mcColors) {
-        const dr = r - c[0], dg = g - c[1], db = b - c[2];
-        const dist = dr*dr + dg*dg + db*db;
-        if (dist < minDist) { minDist = dist; best = c; }
-      }
-      return best;
-    }
-
-    const imageData = tempCtx.getImageData(0, 0, smallW, smallH);
-    for (let i = 0; i < imageData.data.length; i += 4) {
-      const mc = nearestMC(imageData.data[i], imageData.data[i+1], imageData.data[i+2]);
-      imageData.data[i] = mc[0];
-      imageData.data[i+1] = mc[1];
-      imageData.data[i+2] = mc[2];
-    }
-    tempCtx.putImageData(imageData, 0, 0);
-
-    // Scale up pixelated
-    ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(tempCanvas, 0, 0, img.width, img.height);
-
-    // Draw grid lines for block effect
-    ctx.strokeStyle = 'rgba(0,0,0,0.15)';
-    ctx.lineWidth = 1;
-    for (let x = 0; x < img.width; x += PIXEL_SIZE) {
-      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, img.height); ctx.stroke();
-    }
-    for (let y = 0; y < img.height; y += PIXEL_SIZE) {
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(img.width, y); ctx.stroke();
-    }
-
-    resultDataUrl = canvas.toDataURL('image/png');
-    showResult('pixel');
-  };
-  img.src = originalImage;
-}
-
-// ---- AI TRANSFORM ----
-async function startAITransform(apiKey) {
-  showScreen('screenProcessing');
-  const progressFill = document.getElementById('progressFill');
-  const progressText = document.getElementById('progressText');
-
-  progressFill.style.width = '20%';
-  progressText.textContent = 'Wysyłam do AI... 🤖';
+  document.getElementById('progressFill').style.width = '0%';
+  animProg(30, 3000);
 
   try {
-    const base64Data = originalImage.split(',')[1];
-    const mediaType = originalImage.split(';')[0].split(':')[1];
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [
+              { inlineData: { mimeType: originalMime, data: originalBase64 } },
+              { text: MC_PROMPT }
+            ]
+          }],
+          generationConfig: {
+            responseModalities: ["TEXT", "IMAGE"],
+            temperature: 1.0
+          }
+        })
+      }
+    );
 
-    progressFill.style.width = '40%';
-    progressText.textContent = 'AI analizuje zdjęcie... 🧠';
+    animProg(75, 2000);
+    const data = await res.json();
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+
+    let imgData = null, txt = '';
+    if (data.candidates?.[0]?.content?.parts) {
+      for (const part of data.candidates[0].content.parts) {
+        if (part.inlineData) imgData = part.inlineData;
+        if (part.text) txt = part.text;
+      }
+    }
+
+    if (!imgData) throw new Error('AI nie wygenerował obrazu. Spróbuj ponownie! ' + (txt ? 'Odpowiedź: ' + txt.substring(0, 150) : ''));
+
+    animProg(100, 400);
+    resultImageUrl = `data:${imgData.mimeType};base64,${imgData.data}`;
+    setTimeout(() => showResult(txt), 500);
+
+  } catch (err) {
+    console.error('Gemini error:', err);
+    showError(err.message);
+  }
+}
+
+// ===== DALL-E =====
+async function transformDalle(apiKey) {
+  showScreen('screenProcessing');
+  document.getElementById('progressFill').style.width = '0%';
+  animProg(25, 3000);
+
+  try {
+    // Step 1: describe image with GPT-4o-mini
+    const descRes = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
-      },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1500,
+        model: 'gpt-4o-mini',
+        max_tokens: 400,
         messages: [{
           role: 'user',
           content: [
-            {
-              type: 'image',
-              source: { type: 'base64', media_type: mediaType, data: base64Data }
-            },
-            {
-              type: 'text',
-              text: `Jesteś ekspertem od Minecrafta. Przeanalizuj to zdjęcie i odpowiedz PO POLSKU w formacie JSON (tylko JSON, bez markdown):
-{
-  "type": "human" | "room" | "outdoor" | "object",
-  "type_pl": "opis po polsku co widzisz (np. 'Człowiek', 'Pokój', 'Krajobraz')",
-  "description": "Krótki opis po polsku co widzisz na zdjęciu (1-2 zdania)",
-  "minecraft_description": "Opisz jak to zdjęcie wyglądałoby w świecie Minecraft. Jakie bloki by użyto? Jak wyglądałaby scena? (2-3 zdania, po polsku, ekscytująco dla 6-latka)",
-  "minecraft_blocks": ["lista 5 bloków Minecraft które pasują do tego zdjęcia"],
-  "fun_fact": "Jedna ciekawostka z Minecrafta związana z tym co jest na zdjęciu (po polsku, ciekawa dla dziecka)"
-}`
-            }
+            { type: 'image_url', image_url: { url: originalDataUrl } },
+            { type: 'text', text: 'Describe this image in detail in English for an AI image generator. Include: number of people and their appearance (hair color, clothing, pose, age), objects, environment details, colors, lighting. Be specific. Max 4 sentences.' }
           ]
         }]
       })
     });
+    const descData = await descRes.json();
+    if (descData.error) throw new Error('GPT Vision: ' + descData.error.message);
+    const description = descData.choices[0].message.content;
 
-    progressFill.style.width = '70%';
-    progressText.textContent = 'Budujemy świat... 🏗️';
+    animProg(50, 3000);
 
-    const data = await response.json();
+    // Step 2: generate with DALL-E 3
+    const genRes = await fetch('https://api.openai.com/v1/images/generations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+      body: JSON.stringify({
+        model: 'dall-e-3',
+        prompt: `Create a Minecraft game art style image of this scene: ${description}
 
-    if (data.error) {
-      throw new Error(data.error.message || 'Błąd API');
-    }
+CRITICAL STYLE REQUIREMENTS:
+- Every person must be a blocky Minecraft character with square head, rectangular body, pixelated skin
+- Every object must be made of Minecraft blocks (wood planks, stone, wool, glass, etc.)
+- The environment must look like a Minecraft world with visible cube textures
+- Use the classic bright Minecraft color palette
+- Style: official Minecraft promotional artwork, 3D blocky render
+- Make it colorful and fun for a 6-year-old Minecraft fan
+- This must look like a real Minecraft screenshot or artwork, NOT a regular illustration with pixel effects`,
+        n: 1,
+        size: '1024x1024',
+        quality: 'standard'
+      })
+    });
+    const genData = await genRes.json();
+    if (genData.error) throw new Error('DALL-E: ' + genData.error.message);
 
-    const text = data.content[0].text;
-    let aiResult;
-    try {
-      aiResult = JSON.parse(text.replace(/```json|```/g, '').trim());
-    } catch {
-      aiResult = {
-        type_pl: 'Coś ciekawego',
-        description: text.substring(0, 200),
-        minecraft_description: 'AI opisał to zdjęcie ale nie w formacie JSON.',
-        minecraft_blocks: ['Stone', 'Dirt', 'Grass'],
-        fun_fact: 'Steve może nieść miliony ton w swoim ekwipunku!'
-      };
-    }
-
-    progressFill.style.width = '90%';
-    progressText.textContent = 'Craftujemy wynik... ✨';
-
-    // Also create pixel version
-    await createPixelVersion();
-
-    progressFill.style.width = '100%';
-
-    setTimeout(() => showAIResult(aiResult), 500);
+    animProg(100, 400);
+    resultImageUrl = genData.data[0].url;
+    setTimeout(() => showResult(description), 500);
 
   } catch (err) {
-    alert('Ups! Błąd: ' + err.message + '\n\nSprawdź czy klucz API jest poprawny! 🔑');
-    showScreen('screenPreview');
+    console.error('DALL-E error:', err);
+    showError(err.message);
   }
 }
 
-function createPixelVersion() {
-  return new Promise(resolve => {
-    const img = new Image();
-    img.onload = function() {
-      const canvas = document.getElementById('pixelCanvas');
-      const ctx = canvas.getContext('2d');
-      const PIXEL_SIZE = 8;
-      const smallW = Math.ceil(img.width / PIXEL_SIZE);
-      const smallH = Math.ceil(img.height / PIXEL_SIZE);
-      canvas.width = img.width;
-      canvas.height = img.height;
-
-      const tempCanvas = document.createElement('canvas');
-      tempCanvas.width = smallW;
-      tempCanvas.height = smallH;
-      const tempCtx = tempCanvas.getContext('2d');
-      tempCtx.imageSmoothingEnabled = false;
-      tempCtx.drawImage(img, 0, 0, smallW, smallH);
-
-      const mcColors = [
-        [86,125,42],[42,100,30],[139,105,20],[92,74,14],[127,127,127],
-        [100,100,100],[64,64,64],[107,66,38],[156,107,60],[135,206,235],
-        [60,140,200],[30,70,140],[200,200,200],[255,215,0],[74,237,217],
-        [198,40,40],[245,240,225],[30,30,30],[160,100,60],[220,180,100],
-        [50,80,50],[80,50,30],[180,160,140],[60,180,60],[200,120,60],[140,90,80]
-      ];
-
-      function nearestMC(r,g,b) {
-        let minDist=Infinity, best=mcColors[0];
-        for(const c of mcColors){const dr=r-c[0],dg=g-c[1],db=b-c[2],dist=dr*dr+dg*dg+db*db;if(dist<minDist){minDist=dist;best=c;}}
-        return best;
-      }
-
-      const imageData = tempCtx.getImageData(0,0,smallW,smallH);
-      for(let i=0;i<imageData.data.length;i+=4){
-        const mc=nearestMC(imageData.data[i],imageData.data[i+1],imageData.data[i+2]);
-        imageData.data[i]=mc[0];imageData.data[i+1]=mc[1];imageData.data[i+2]=mc[2];
-      }
-      tempCtx.putImageData(imageData,0,0);
-      ctx.imageSmoothingEnabled=false;
-      ctx.drawImage(tempCanvas,0,0,img.width,img.height);
-
-      ctx.strokeStyle='rgba(0,0,0,0.15)';ctx.lineWidth=1;
-      for(let x=0;x<img.width;x+=PIXEL_SIZE){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,img.height);ctx.stroke();}
-      for(let y=0;y<img.height;y+=PIXEL_SIZE){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(img.width,y);ctx.stroke();}
-
-      resultDataUrl = canvas.toDataURL('image/png');
-      resolve();
-    };
-    img.src = originalImage;
-  });
-}
-
-// ========== SHOW RESULTS ==========
-function showResult(mode) {
+// ===== RESULT =====
+function showResult(text) {
   const area = document.getElementById('resultArea');
   area.innerHTML = `
-    <div class="comparison">
-      <div>
-        <div class="preview-container"><img src="${originalImage}" alt="Oryginał"></div>
-        <div class="comp-label">Oryginał 📸</div>
-      </div>
-      <div>
-        <div class="preview-container"><img src="${resultDataUrl}" alt="Minecraft"></div>
-        <div class="comp-label">Minecraft! ⛏️</div>
-      </div>
+    <div class="result-image-wrap">
+      <img class="result-img" src="${resultImageUrl}" alt="Minecraft!" crossorigin="anonymous">
+      <img class="original-thumb" src="${originalDataUrl}" alt="Oryginał">
     </div>
   `;
   showScreen('screenResult');
 }
 
-function showAIResult(aiResult) {
-  const area = document.getElementById('resultArea');
-  area.innerHTML = `
-    <div class="badge" style="margin-bottom:8px">
-      <span class="icon">${aiResult.type === 'human' ? '🧑' : aiResult.type === 'room' ? '🏠' : aiResult.type === 'outdoor' ? '🌍' : '📦'}</span>
-      <span>${aiResult.type_pl || 'Wykryto!'}</span>
-    </div>
-    <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:14px;margin-bottom:8px;font-size:0.9rem;line-height:1.5">
-      <div style="margin-bottom:10px">${aiResult.description || ''}</div>
-      <div style="color:var(--mc-grass-light);font-family:'Silkscreen',monospace;font-size:0.7rem;margin-bottom:6px">🧱 W MINECRAFT:</div>
-      <div style="margin-bottom:10px">${aiResult.minecraft_description || ''}</div>
-      <div style="color:var(--mc-gold);font-size:0.8rem">
-        🧱 Bloki: ${(aiResult.minecraft_blocks || []).join(', ')}
-      </div>
-      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--mc-wood);color:var(--mc-diamond);font-size:0.85rem">
-        💡 ${aiResult.fun_fact || ''}
-      </div>
-    </div>
-    <div class="comparison">
-      <div>
-        <div class="preview-container"><img src="${originalImage}" alt="Oryginał"></div>
-        <div class="comp-label">Oryginał 📸</div>
-      </div>
-      <div>
-        <div class="preview-container"><img src="${resultDataUrl}" alt="Minecraft"></div>
-        <div class="comp-label">Minecraft! ⛏️</div>
-      </div>
-    </div>
-  `;
-  showScreen('screenResult');
+function showError(msg) {
+  showScreen('screenPreview');
+  document.querySelectorAll('.error-box').forEach(e => e.remove());
+  const d = document.createElement('div');
+  d.className = 'error-box';
+  d.innerHTML = `❌ <b>Ups!</b> ${msg}`;
+  const screen = document.getElementById('screenPreview');
+  screen.insertBefore(d, screen.lastElementChild);
+  setTimeout(() => d.remove(), 15000);
 }
 
-// ========== SAVE ==========
-function saveResult() {
-  if (!resultDataUrl) return;
-  const a = document.createElement('a');
-  a.href = resultDataUrl;
-  a.download = 'minecraft-photo-' + Date.now() + '.png';
-  a.click();
+// SAVE
+async function saveResult() {
+  if (!resultImageUrl) return;
+  try {
+    if (resultImageUrl.startsWith('data:')) {
+      const a = document.createElement('a');
+      a.href = resultImageUrl;
+      a.download = 'minecraft-' + Date.now() + '.png';
+      a.click();
+    } else {
+      const r = await fetch(resultImageUrl);
+      const b = await r.blob();
+      const u = URL.createObjectURL(b);
+      const a = document.createElement('a');
+      a.href = u; a.download = 'minecraft-' + Date.now() + '.png'; a.click();
+      URL.revokeObjectURL(u);
+    }
+  } catch { window.open(resultImageUrl, '_blank'); }
 }
 
-// ========== SERVICE WORKER REGISTRATION ==========
+// RESTORE KEYS
+window.addEventListener('load', () => {
+  try {
+    const gk = localStorage.getItem('gemini_key');
+    const dk = localStorage.getItem('dalle_key');
+    if (gk) document.getElementById('geminiKeyInput').value = gk;
+    if (dk) document.getElementById('dalleKeyInput').value = dk;
+  } catch(e) {}
+});
+
+// SERVICE WORKER
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
-  });
+  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
 }
 </script>
 </body>
