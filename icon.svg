@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#5D8C2E"/>
+  <rect x="40" y="40" width="432" height="432" rx="40" fill="#3a2a14"/>
+  <!-- Pickaxe -->
+  <rect x="230" y="160" width="52" height="200" rx="4" fill="#9C6B3C"/>
+  <rect x="150" y="120" width="212" height="52" rx="4" fill="#7F7F7F"/>
+  <rect x="150" y="120" width="80" height="52" rx="4" fill="#4AEDD9"/>
+  <rect x="282" y="120" width="80" height="52" rx="4" fill="#4AEDD9"/>
+  <!-- Pixels decorative -->
+  <rect x="80" y="340" width="40" height="40" fill="#5D8C2E" opacity="0.6"/>
+  <rect x="120" y="380" width="40" height="40" fill="#8B6914" opacity="0.6"/>
+  <rect x="352" y="340" width="40" height="40" fill="#8B6914" opacity="0.6"/>
+  <rect x="392" y="380" width="40" height="40" fill="#5D8C2E" opacity="0.6"/>
+  <!-- Camera lens -->
+  <circle cx="256" cy="390" r="30" fill="none" stroke="#FFD700" stroke-width="8"/>
+  <circle cx="256" cy="390" r="12" fill="#FFD700"/>
+</svg>
